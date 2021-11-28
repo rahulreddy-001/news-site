@@ -4,6 +4,7 @@ import Headline from "./Headline";
 import "./homepage.css";
 import { FaSearch } from "react-icons/fa";
 import Categories from "./Categories";
+import sampleData from "./offline-data";
 const API_KEY = "b93a6533fc9b47e59e8f40664b440484";
 function Homepage() {
   const [q, setQ] = React.useState("India");
@@ -13,7 +14,7 @@ function Homepage() {
     "sortBy=popularity&" +
     `apiKey=${API_KEY}`;
   const [url, setUrl] = React.useState(init_url);
-  const [dataArr, setDataArr] = React.useState([]);
+  const [dataArr, setDataArr] = React.useState(sampleData);
   var setText = (text) => {
     setQ(text.target.value);
     console.log(q);
@@ -28,6 +29,7 @@ function Homepage() {
     async function fetchUrl() {
       const response = await fetch(url);
       const articalsObj = await response.json();
+      console.log(articalsObj.articles);
       setDataArr(articalsObj.articles);
       return response;
     }
@@ -48,20 +50,35 @@ function Homepage() {
         <FaSearch className="btn" />
       </div>
       <Categories setCat={setUrl} />
-      {dataArr.map((e) => {
-        return (
-          <Headline
-            key={e.source.name + e.publishedAt + e.title}
-            source_name={e.source.name}
-            publishedAt={e.publishedAt}
-            title={e.title}
-            image={e.urlToImage}
-            description={e.description}
-            content={e.content}
-            url={e.url}
-          />
-        );
-      })}
+      {dataArr
+        ? dataArr.map((e) => {
+            return (
+              <Headline
+                key={e.source.name + e.publishedAt + e.title}
+                source_name={e.source.name}
+                publishedAt={e.publishedAt}
+                title={e.title}
+                image={e.urlToImage}
+                description={e.description}
+                content={e.content}
+                url={e.url}
+              />
+            );
+          })
+        : sampleData.map((e) => {
+            return (
+              <Headline
+                key={e.source.name + e.publishedAt + e.title}
+                source_name={e.source.name}
+                publishedAt={e.publishedAt}
+                title={e.title}
+                image={e.urlToImage}
+                description={e.description}
+                content={e.content}
+                url={e.url}
+              />
+            );
+          })}
     </div>
   );
 }
