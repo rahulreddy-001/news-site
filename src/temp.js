@@ -1,0 +1,1 @@
+{source: {…}, author: null, title: "India's Modi orders review of reopening on Omicron COVID concerns - Reuters India", description: 'Indian Prime Minister Narendra Modi told officials…-tighten-border-controls-s-africa-others-new-vir…', url: 'https://www.reuters.com/world/india/indias-modi-or…view-reopening-omicron-covid-concerns-2021-11-27/', …}
