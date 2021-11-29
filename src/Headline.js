@@ -38,10 +38,11 @@ function Headline({
     return (
       <>
         <div
-          className="headline_card"
+          className="headline_card headline_card_1"
           onClick={() => {
             setInDetail(false);
           }}
+          style={{}}
         >
           <div className="publisher_time">
             <img src={iconAdd} className="icon" alt="" />
@@ -49,6 +50,7 @@ function Headline({
             <div className="time"> {publishedAt}</div>
           </div>
           <div className="title">{title}</div>
+          <hr style={{ height: "1px", color: "black" }} />
           <div className="description">{description}</div>
           <img className="image_" src={image} alt="" />
           <div className="content">{content}</div>

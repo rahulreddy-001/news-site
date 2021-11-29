@@ -11,4 +11,5 @@
   max-width: 500px;
   display: grid;
   align-self: center;
+  margin: auto;
 }
